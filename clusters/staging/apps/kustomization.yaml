@@ -3,7 +3,11 @@ kind: Kustomization
 resources:
   - ../../../apps/bundles/staging-flex
   - flux-promotion
+  - immich
   - linstor
+  - n8n
+  - qbittorrent
+  - vaultwarden
 patches:
   - path: mattermost/rm-helm-release.yaml
   - path: mattermost/rm-helm-repo.yaml
@@ -11,6 +15,10 @@ patches:
     target:
       kind: HelmRelease
       name: cilium
+  - path: immich/immich-values.yaml
+    target:
+      kind: HelmRelease
+      name: immich
   - path: linstor/helm-release.yaml
     target:
       kind: HelmRelease
@@ -19,3 +27,15 @@ patches:
     target:
       kind: GitRepository
       name: piraeus
+  - path: n8n/n8n-values.yaml
+    target:
+      kind: HelmRelease
+      name: n8n
+  - path: qbittorrent/downloads-patch.yaml
+    target:
+      kind: Deployment
+      name: qbittorrent
+  - path: vaultwarden/vaultwarden-values.yaml
+    target:
+      kind: HelmRelease
+      name: vaultwarden
