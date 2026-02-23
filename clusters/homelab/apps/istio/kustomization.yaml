@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   # - gw-internal.yaml
   # - gw-external.yaml
-  - namespace.yaml

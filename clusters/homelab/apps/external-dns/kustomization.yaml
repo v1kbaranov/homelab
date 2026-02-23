@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: external-dns
 resources:
   - secrets.yaml
-  - namespace.yaml
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:

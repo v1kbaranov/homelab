@@ -8,7 +8,6 @@ resources:
   - database.yaml
   - vaultwarden-http-route.yaml
   - networkpolicy.yaml
-  - namespace.yaml
 secretGenerator:
   - name: vaultwarden-values
     files:

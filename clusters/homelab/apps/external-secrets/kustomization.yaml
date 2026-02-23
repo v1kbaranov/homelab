@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: external-secrets
 resources:
   - vaultwarden-secret-store.yaml
-  - namespace.yaml
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:

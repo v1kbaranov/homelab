@@ -6,4 +6,3 @@ resources:
   - cluster-issuer.yaml
   - secrets.yaml
   - reference-grant.yaml
-  - namespace.yaml

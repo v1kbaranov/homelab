@@ -6,7 +6,6 @@ namespace: bitwarden-cli
 resources:
   - bitwarden-cli.yaml
   - network-policy.yaml
-  - namespace.yaml
 secretGenerator:
   - name: bitwarden-cli
     envs:

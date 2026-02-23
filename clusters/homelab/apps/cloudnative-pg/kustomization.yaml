@@ -4,7 +4,6 @@ kind: Kustomization
 namespace: cnpg-system
 resources:
   - vmrule.yaml
-  - namespace.yaml
 configMapGenerator:
   - name: cnpg-dashboard
     files:
