@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - ../../../apps/bundles/dev-flex
   - cert-manager
-  - cloudnative-pg
   - envoy-gateway
   - n8n
   - podinfo
