@@ -16,8 +16,8 @@ spec:
       ollama:
         models:
           pull:
-            - llama3.2:1b
-            - qwen3:1.7b
+            - "llama3.2:1b"
+            - "tomng/nanbeige4.1:3b"
     persistence:
       enabled: true
       size: 2Gi
