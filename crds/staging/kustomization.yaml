@@ -9,4 +9,5 @@ resources:
   - ../base/prometheus-crds
   - ../base/victoria-metrics
   - ../base/gateway-api
+  - ../base/envoy-gateway
   - ../base/istio
