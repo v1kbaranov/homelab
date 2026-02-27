@@ -23,4 +23,4 @@ resources:
   - ../../base/qbittorrent
   - ../../base/vaultwarden
 patches:
-  - path: staging-flex.yaml
+  - path: stage-flex.yaml

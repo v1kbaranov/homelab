@@ -9,8 +9,8 @@ spec:
   eventSeverity: info
   eventMetadata:
     action: flux-promotion
-    source_cluster: staging
-    source_bundle: staging-flex
+    source_cluster: stage
+    source_bundle: stage-flex
     target_bundle: prod-stable
   eventSources:
     - kind: HelmRelease

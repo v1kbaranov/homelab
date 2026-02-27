@@ -1,7 +1,7 @@
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
-  name: staging-nodeport
+  name: stage-nodeport
   namespace: envoy-gateway-system
 spec:
   provider:
@@ -34,7 +34,7 @@ spec:
     parametersRef:
       group: gateway.envoyproxy.io
       kind: EnvoyProxy
-      name: staging-nodeport
+      name: stage-nodeport
   listeners:
     - name: http
       protocol: HTTP
