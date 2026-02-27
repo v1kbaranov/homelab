@@ -12,7 +12,6 @@ spec:
       exclusive: true
     nodePort:
       enabled: true
-    enableIPv4BIGTCP: true
     hubble:
       enabled: true
       relay:
