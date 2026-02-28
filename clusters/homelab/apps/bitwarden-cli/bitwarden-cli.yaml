@@ -27,8 +27,8 @@ spec:
           imagePullPolicy: IfNotPresent
           resources:
             limits:
-              cpu: "2"
-              memory: 512Mi
+              cpu: "1"
+              memory: 1Gi
             requests:
               memory: 512Mi
               cpu: 100m
@@ -48,8 +48,8 @@ spec:
                 - --post-data=''
             initialDelaySeconds: 20
             failureThreshold: 5
-            timeoutSeconds: 10
-            periodSeconds: 60
+            timeoutSeconds: 30
+            periodSeconds: 120
           readinessProbe:
             tcpSocket:
               port: 8087
@@ -67,6 +67,8 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /home/bitwarden/.bitwarden
+            - name: tmp
+              mountPath: /tmp
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
@@ -78,6 +80,8 @@ spec:
               type: RuntimeDefault
       volumes:
         - name: config
+          emptyDir: {}
+        - name: tmp
           emptyDir: {}
 
 ---
