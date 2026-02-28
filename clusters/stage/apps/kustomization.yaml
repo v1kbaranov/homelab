@@ -8,6 +8,7 @@ resources:
   - immich
   - linstor
   - n8n
+  - open-webui
   - qbittorrent
   - vaultwarden
 patches:
@@ -37,6 +38,10 @@ patches:
     target:
       kind: Deployment
       name: qbittorrent
+  - path: open-webui/open-webui-values.yaml
+    target:
+      kind: HelmRelease
+      name: open-webui
   - path: vaultwarden/vaultwarden-values.yaml
     target:
       kind: HelmRelease
