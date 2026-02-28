@@ -32,6 +32,9 @@ spec:
       name: n8n
       namespace: homelab
     - kind: HelmRelease
+      name: podinfo
+      namespace: homelab
+    - kind: HelmRelease
       name: immich
       namespace: homelab
     - kind: HelmRelease
