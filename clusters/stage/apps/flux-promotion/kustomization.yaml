@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - gh-dispatch-provider.yaml
   - gh-dispatch-alert.yaml
+  - secrets.yaml

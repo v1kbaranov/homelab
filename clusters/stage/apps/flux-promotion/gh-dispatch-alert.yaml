@@ -14,14 +14,29 @@ spec:
     target_bundle: prod-stable
   eventSources:
     - kind: HelmRelease
+      name: cilium
+      namespace: kube-system
+    - kind: HelmRelease
       name: cert-manager
       namespace: cert-manager
+    - kind: HelmRelease
+      name: external-secrets
+      namespace: external-secrets
     - kind: HelmRelease
       name: cloudnative-pg
       namespace: cnpg-system
     - kind: HelmRelease
+      name: envoy-gateway
+      namespace: envoy-gateway-system
+    - kind: HelmRelease
       name: n8n
       namespace: homelab
     - kind: HelmRelease
-      name: podinfo
+      name: immich
       namespace: homelab
+    - kind: HelmRelease
+      name: vaultwarden
+      namespace: vaultwarden
+    - kind: HelmRelease
+      name: piraeus-operator
+      namespace: linstor
