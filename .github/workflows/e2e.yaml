@@ -58,13 +58,11 @@ jobs:
             --for=condition=Ready \
             --timeout=15m
 
-      - name: Verify podinfo
+      - name: Wait for all pods to be ready
         run: |
-          kubectl -n homelab wait helmrelease/podinfo \
+          kubectl wait pod --all --all-namespaces \
             --for=condition=Ready \
-            --timeout=5m
-          kubectl -n homelab rollout status deployment/podinfo \
-            --timeout=5m
+            --timeout=15m
 
       - name: Debug on failure
         if: failure()
