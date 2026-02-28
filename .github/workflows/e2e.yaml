@@ -23,64 +23,16 @@ jobs:
           cluster_name: local
           config: kind-config.yaml
 
-      - name: Install Flux controllers
-        run: flux install
-
-      - name: Create namespaces
-        run: kubectl apply -f clusters/local/namespaces.yaml
-
-      - name: Create sops-age secret
+      - name: Write sops age key
         run: |
-          kubectl create secret generic sops-age \
-            --namespace=flux-system \
-            --from-literal=sops.agekey="${{ secrets.SOPS_AGE_KEY }}"
+          mkdir -p clusters/local
+          echo "${{ secrets.SOPS_AGE_KEY }}" > clusters/local/sops.agekey
 
-      - name: Create git source
+      - name: Run e2e
         run: |
-          flux create source git flux-system \
-            --url=${{ github.server_url }}/${{ github.repository }} \
-            --branch=${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}
-
-      - name: Apply Flux kustomizations
-        run: |
-          kubectl apply -f clusters/local/crds.yaml
-          kubectl apply -f clusters/local/bundle.yaml
-
-      - name: Wait for CRDs
-        run: |
-          kubectl -n flux-system wait kustomization/crds \
-            --for=condition=Ready \
-            --timeout=10m
-
-      - name: Wait for bundle
-        run: |
-          kubectl -n flux-system wait kustomization/bundle \
-            --for=condition=Ready \
-            --timeout=15m
-
-      - name: Wait for HelmReleases to be ready
-        run: |
-          # Bundle has wait:false so the Kustomization becomes Ready before
-          # helm-controller finishes installing charts. Wait for all
-          # HelmReleases to actually reach Ready state.
-          for i in $(seq 1 60); do
-            count=$(kubectl get helmreleases -A --no-headers 2>/dev/null | wc -l)
-            if [[ "$count" -gt 0 ]]; then
-              echo "Found $count HelmRelease(s), waiting for Ready..."
-              break
-            fi
-            echo "Waiting for HelmReleases to appear ($i/60)..."
-            sleep 5
-          done
-          kubectl wait helmrelease --all --all-namespaces \
-            --for=condition=Ready \
-            --timeout=15m
-
-      - name: Wait for all pods to be ready
-        run: |
-          kubectl wait pod --all --all-namespaces \
-            --for=condition=Ready \
-            --timeout=15m
+          make ci-e2e \
+            GIT_URL=${{ github.server_url }}/${{ github.repository }} \
+            GIT_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}
 
       - name: Debug on failure
         if: failure()
