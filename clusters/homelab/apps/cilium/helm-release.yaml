@@ -5,10 +5,6 @@ metadata:
   name: cilium
 spec:
   interval: 15m
-  chart:
-    spec:
-      chart: cilium
-      version: "1.18.x"
   values:
     installNoConntrackIptablesRules: false
     bpf:

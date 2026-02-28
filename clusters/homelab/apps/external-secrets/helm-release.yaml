@@ -5,9 +5,6 @@ metadata:
   name: external-secrets
   namespace: external-secrets
 spec:
-  chart:
-    spec:
-      version: "0.20.x"
   values:
     serviceMonitor:
       enabled: true

@@ -5,9 +5,6 @@ metadata:
 spec:
   driftDetection:
     mode: enabled
-  chart:
-    spec:
-      version: "0.11.x"
   dependsOn:
     - name: "vmks"
       namespace: "monitoring"

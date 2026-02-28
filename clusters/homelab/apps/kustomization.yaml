@@ -43,10 +43,6 @@ patches:
     target:
       kind: HelmRelease
       name: cilium
-  - path: cloudnative-pg/helm-release.yaml
-    target:
-      kind: HelmRelease
-      name: cloudnative-pg
   - path: csi-nfs/helm-release.yaml
     target:
       kind: HelmRelease
@@ -71,10 +67,6 @@ patches:
     target:
       kind: HelmRelease
       name: jellyfin
-  - path: linstor/helm-release.yaml
-    target:
-      kind: HelmRelease
-      name: piraeus-operator
   - path: linstor/git-repos.yaml
     target:
       kind: GitRepository

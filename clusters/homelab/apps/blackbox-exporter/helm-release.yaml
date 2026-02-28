@@ -3,9 +3,6 @@ kind: HelmRelease
 metadata:
   name: blackbox-exporter
 spec:
-  chart:
-    spec:
-      version: "11.x.x"
   dependsOn:
     - name: "vmks"
       namespace: "monitoring"
