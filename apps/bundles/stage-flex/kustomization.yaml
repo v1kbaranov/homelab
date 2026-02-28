@@ -22,5 +22,6 @@ resources:
   - ../../base/podinfo
   - ../../base/qbittorrent
   - ../../base/vaultwarden
+  - ../../base/metrics-server
 patches:
   - path: stage-flex.yaml
