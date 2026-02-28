@@ -166,7 +166,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: "1.0.0-alpha.0"
+      version: "6.9.4"
 # ---
 # apiVersion: apps/v1
 # kind: Deployment
