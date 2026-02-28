@@ -19,7 +19,7 @@ spec:
               DB_URL:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-db-app
+                    name: immich-db-superuser
                     key: uri
             securityContext:
               capabilities:
