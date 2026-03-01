@@ -19,7 +19,7 @@ spec:
               DB_URL:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-db-superuser
+                    name: immich-db-app
                     key: uri
               DB_SKIP_MIGRATIONS: "true"
             securityContext:
