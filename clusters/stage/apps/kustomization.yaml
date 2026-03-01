@@ -8,13 +8,16 @@ resources:
   - jellyfin
   - linstor
   - n8n
-  - open-webui
   - qbittorrent
   - vaultwarden
   - flux
 patches:
   - path: mattermost/rm-helm-release.yaml
   - path: mattermost/rm-helm-repo.yaml
+  - path: victoria-metrics/rm-helm-release.yaml
+  - path: victoria-metrics/rm-helm-repo.yaml
+  - path: open-webui/rm-helm-release.yaml
+  - path: open-webui/rm-helm-repo.yaml
   - path: cilium/helm-release.yaml
     target:
       kind: HelmRelease
@@ -43,10 +46,6 @@ patches:
     target:
       kind: HelmRelease
       name: jellyfin
-  - path: open-webui/open-webui-values.yaml
-    target:
-      kind: HelmRelease
-      name: open-webui
   - path: vaultwarden/vaultwarden-values.yaml
     target:
       kind: HelmRelease
