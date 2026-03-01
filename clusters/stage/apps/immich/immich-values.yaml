@@ -16,12 +16,26 @@ spec:
             env:
               REDIS_HOSTNAME: '{{ printf "%s-valkey" .Release.Name }}'
               IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
-              DB_URL:
+              DB_HOSTNAME:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-db-app
-                    key: uri
-              DB_SKIP_MIGRATIONS: "true"
+                    name: immich-db-superuser
+                    key: host
+              DB_PORT:
+                valueFrom:
+                  secretKeyRef:
+                    name: immich-db-superuser
+                    key: port
+              DB_USERNAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: immich-db-superuser
+                    key: username
+              DB_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: immich-db-superuser
+                    key: password
             securityContext:
               capabilities:
                 drop:
