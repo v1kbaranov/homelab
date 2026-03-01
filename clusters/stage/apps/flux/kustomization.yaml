@@ -5,3 +5,5 @@ resources:
   - gh-dispatch-provider.yaml
   - gh-dispatch-alert.yaml
   - secrets.yaml
+  - http-route.yaml
+  - flux-instance.yaml

@@ -4,7 +4,6 @@ resources:
   - ../../../apps/bundles/stage-flex
   - cert-manager
   - envoy-gateway
-  - flux-promotion
   - immich
   - jellyfin
   - linstor
@@ -12,6 +11,7 @@ resources:
   - open-webui
   - qbittorrent
   - vaultwarden
+  - flux
 patches:
   - path: mattermost/rm-helm-release.yaml
   - path: mattermost/rm-helm-repo.yaml
