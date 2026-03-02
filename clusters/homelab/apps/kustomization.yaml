@@ -23,6 +23,7 @@ resources:
   - vaultwarden
   - victoria-logs
   - victoria-metrics
+  - flux
   - ../misc
 patches:
   # delete istio's gateways 
