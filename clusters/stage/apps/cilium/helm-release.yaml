@@ -59,5 +59,7 @@ spec:
       algorithm: maglev
       acceleration: best-effort
       serviceTopology: true
+    operator:
+      replicas: 1
     envoy:
       enabled: false
