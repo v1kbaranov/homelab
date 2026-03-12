@@ -6,12 +6,6 @@ metadata:
 spec:
   interval: 15m
   values:
-    prometheus:
-      enabled: true
-      serviceMonitor:
-        enabled: true
-    dashboards:
-      enabled: true
     hubble:
       enabled: true
       relay:
@@ -21,8 +15,10 @@ spec:
     ipam:
       mode: kubernetes
     kubeProxyReplacement: true
-    # https://docs.cilium.io/en/stable/network/kubernetes/local-redirect-policy/
-    localRedirectPolicy: false
+    externalIPs:
+      enabled: true
+    nodePort:
+      enabled: true
     securityContext:
       capabilities:
         ciliumAgent:
@@ -47,6 +43,9 @@ spec:
         enabled: false
     k8sServiceHost: localhost
     k8sServicePort: 7445
+    loadBalancer:
+      algorithm: maglev
+      serviceTopology: true
     l2announcements:
       enabled: true
       leaseDuration: 15s
@@ -54,3 +53,7 @@ spec:
       leaseRetryPeriod: 2s
     envoy:
       enabled: false
+    rollOutCiliumPods: true
+    operator:
+      rollOutPods: true
+      replicas: 1
