@@ -45,7 +45,6 @@ spec:
     k8sServiceHost: localhost
     k8sServicePort: 7445
     loadBalancer:
-      mode: dsr
       algorithm: maglev
       serviceTopology: true
     l2announcements:
@@ -59,11 +58,3 @@ spec:
     operator:
       rollOutPods: true
       replicas: 1
-    routingMode: native
-    autoDirectNodeRoutes: true
-    ipv4NativeRoutingCIDR: "10.244.0.0/16"
-    bpf:
-      masquerade: true
-      hostLegacyRouting: false
-    socketLB:
-      enabled: true
