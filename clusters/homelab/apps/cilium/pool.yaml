@@ -13,4 +13,7 @@ kind: CiliumL2AnnouncementPolicy
 metadata:
   name: l2policy
 spec:
+  interfaces:
+  - ^eth[0-9]+
+  externalIPs: true
   loadBalancerIPs: true
