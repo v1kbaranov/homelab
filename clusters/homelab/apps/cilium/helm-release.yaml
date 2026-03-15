@@ -15,6 +15,7 @@ spec:
     ipam:
       mode: kubernetes
     kubeProxyReplacement: true
+    policyEnforcementMode: never
     externalIPs:
       enabled: true
     nodePort:
